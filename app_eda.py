@@ -42,7 +42,7 @@ if "logged_in" not in st.session_state:
 # ---------------------
 class Home:
     class Home:
-        def __init__(self, login_page, register_page, findpw_page):
+        def __init__(self, login_page=None, register_page=None, findpw_page=None):
             st.title("🏠 Home")
             if st.session_state.get("logged_in"):
                 st.success(f"{st.session_state.get('user_email')}님 환영합니다.")
@@ -343,12 +343,7 @@ class EDA:
                 ax2.set_ylabel("Region")
                 ax2.set_title("Population Change Rate by Region")
                 st.pyplot(fig2)
-
-                st.markdown("""
-                > **해석:** 상단 그래프는 최근 5년간 지역별 인구 순증감량을 나타내며,  
-                > 하단 그래프는 기준 연도 대비 인구 증가율을 시각화한 것입니다.  
-                > 이 그래프들을 통해 특정 지역의 인구 유입 및 유출 경향을 비교 분석할 수 있습니다.
-                """)
+        
         # 4. 변화량 분석
         with tabs[3]:  # 변화량 분석
             st.header("📉 Top 100 Population Changes by Region-Year")
@@ -368,13 +363,7 @@ class EDA:
                         subset=['증감'], cmap='RdBu', axis=0, low=0.5, high=0.5
                     ).format({'증감': lambda x: f"{x}"})
                 )
-
-                st.markdown("""
-                > **해석:**  
-                > 연도별로 각 지역의 인구 증가 또는 감소 수치를 계산하여 상위 100개 사례를 추출했습니다.  
-                > 배경색은 증감 방향을 시각적으로 강조하며, 빨강(감소), 파랑(증가)을 나타냅니다.
-                """)
-
+            
         # 5. 시각화
         with tabs[4]:  # 시각화
             st.header("🗺 Stacked Area Chart of Regional Population")
@@ -392,12 +381,7 @@ class EDA:
                 ax.legend(title="Region", bbox_to_anchor=(1.05, 1), loc='upper left')
                 st.pyplot(fig)
 
-                st.markdown("""
-                > **해석:**  
-                > 이 누적 영역 그래프는 연도별로 지역 간 인구 분포를 시각화한 것입니다.  
-                > 면적이 넓은 지역은 전체 인구 비중이 크며, 면적의 기울기 변화로 인구 추세도 파악할 수 있습니다.
-                """)
-
+            
 
 # ---------------------
 # 페이지 객체 생성
