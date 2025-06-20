@@ -42,12 +42,11 @@ if "logged_in" not in st.session_state:
 # ---------------------
 class Home:
     class Home:
-        def __init__(self, login_page=None, register_page=None, findpw_page=None):
+        def __init__(self):
             st.title("🏠 Home")
             if st.session_state.get("logged_in"):
                 st.success(f"{st.session_state.get('user_email')}님 환영합니다.")
 
-            # 데이터 소개
             st.markdown("""
                 ---
                 **지역별 인구 추이 데이터셋 소개**  
