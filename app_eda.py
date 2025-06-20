@@ -41,24 +41,25 @@ if "logged_in" not in st.session_state:
 # 홈 페이지 클래스
 # ---------------------
 class Home:
-    class Home:
-        def __init__(self):
-            st.title("🏠 Home")
-            if st.session_state.get("logged_in"):
-                st.success(f"{st.session_state.get('user_email')}님 환영합니다.")
+    def __init__(self, login_page, register_page, findpw_page):
+        st.title("🏠 Home")
+        if st.session_state.get("logged_in"):
+            st.success(f"{st.session_state.get('user_email')}님 환영합니다.")
 
-            st.markdown("""
-                ---
-                **지역별 인구 추이 데이터셋 소개**  
-                - 출처: [KOSIS 지역통계](https://kosis.kr)  
-                - 설명: 연도별 각 지역(시·도)의 인구, 출생아 수, 사망자 수 등을 포함한 데이터  
-                - 주요 변수:
-                - `연도`: 기준 연도  
-                - `지역`: 시·도 이름  
-                - `인구`: 해당 연도 인구 수  
-                - `출생아수(명)`, `사망자수(명)`: 해당 연도 출생 및 사망 수  
-                - 그 외 기타 통계
-            """)
+        # 데이터 소개
+        st.markdown("""
+            ---
+            **지역별 인구 추이 데이터셋 소개**  
+            - 출처: [KOSIS 지역통계](https://kosis.kr)  
+            - 설명: 연도별 각 지역(시·도)의 인구, 출생아 수, 사망자 수 등을 포함한 데이터  
+            - 주요 변수:
+              - `연도`: 기준 연도  
+              - `지역`: 시·도 이름  
+              - `인구`: 해당 연도 인구 수  
+              - `출생아수(명)`, `사망자수(명)`: 해당 연도 출생 및 사망 수  
+              - 그 외 기타 통계
+        """)
+    
 # ---------------------
 # 로그인 페이지 클래스
 # ---------------------
